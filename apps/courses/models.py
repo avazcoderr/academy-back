@@ -89,6 +89,7 @@ class Lesson(AbstractBaseModel):
         related_name="lessons"
     )
     title = models.CharField(max_length=255)
+    content = models.TextField()
     video = models.FileField(
         upload_to="lessons/videos/",
         validators=[FileExtensionValidator(allowed_extensions=["mp4", "avi", "mov"])],
@@ -110,3 +111,6 @@ class Lesson(AbstractBaseModel):
         verbose_name_plural = "Lessons"
         ordering = ["topic"]
         db_table = "lessons"
+        indexes = [
+            models.Index(fields=["topic", "title"]),
+        ]

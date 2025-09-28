@@ -11,6 +11,9 @@ from rest_framework import permissions
 
 
 class IntroductionListAPIView(ListAPIView):
+    """
+    View to list all categories without pagination.
+    """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     pagination_class = None  # Disable pagination for this view
