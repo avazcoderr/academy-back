@@ -7,49 +7,65 @@ To set up the project locally, follow these steps:
 
 1. Clone the repository
 
-   ```bash
-   git@github.com:avazcoderr/academy-back.git
-   cd academy-back
-   ```
-
+    ```bash
+    git@github.com:avazcoderr/academy-back.git
+    cd academy-back
+    ```
 
 2. Create a virtual environment
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate # For Windows, use `venv\Scripts\activate`
-   ```
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate # For Windows, use `venv\Scripts\activate`
+    ```
 
 3. Install required packages
 
-   ```bash
-   pip install -r requirements.txt
-   ```   
+    ```bash
+    pip install -r requirements.txt
+    ```   
 
-4. Configure Environment Variables
+4. PostgreSQL setup
+
+Install PostgreSQL and create database:
+
+```bash
+# Install PostgreSQL (Ubuntu/Debian)
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+
+# Create database
+sudo -u postgres psql
+CREATE DATABASE my_db;
+CREATE USER pharma_user WITH PASSWORD 'your_strong_password';
+GRANT ALL PRIVILEGES ON DATABASE my_db TO my_user;
+\q
+```
+
+5. Configure Environment Variables
 Rename the .env.example file to .env and replace your_secret_key with your actual Django secret key, along with any other necessary environment-specific values:
 
-   ```bash
-   SECRET_KEY=your_secret_key
-   ```
+    ```bash
+    SECRET_KEY=your_secret_key
+    ```
 
-5. Apply migrations
+6. Apply migrations
 
-   ```bash
-   python manage.py migrate
-   ```
+    ```bash
+    python manage.py migrate
+    ```
 
-6. Create a superuser
+7. Create a superuser
 
-   ```bash
-   python manage.py createsuperuser
-   ```
+    ```bash
+    python manage.py createsuperuser
+    ```
 
-   7. Run the project
+8. Run the project
 
-      ```bash
-      python manage.py runserver
-      ```
+    ```bash
+    python manage.py runserver
+    ```
    
 Usage
 
