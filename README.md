@@ -8,7 +8,7 @@ To set up the project locally, follow these steps:
 1. Clone the repository
 
     ```bash
-    git@github.com:avazcoderr/academy-back.git
+    git clone git@github.com:avazcoderr/academy-back.git
     cd academy-back
     ```
 
@@ -37,7 +37,7 @@ sudo apt install postgresql postgresql-contrib
 # Create database
 sudo -u postgres psql
 CREATE DATABASE my_db;
-CREATE USER pharma_user WITH PASSWORD 'your_strong_password';
+CREATE USER test_user WITH PASSWORD 'your_strong_password';
 GRANT ALL PRIVILEGES ON DATABASE my_db TO my_user;
 \q
 ```
