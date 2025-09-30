@@ -8,10 +8,7 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    'apps.products',
-    'apps.tests',
     "apps.courses",
-    
 ]
 
 THIRD_PARTY = [
