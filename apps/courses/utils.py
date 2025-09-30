@@ -1,11 +1,6 @@
-import os
-import subprocess
+import subprocess, os
 
-# ffmpeg orqali video faylini HLS formatiga o'zgartirish ya'ni m3u8 qilish
-def convert_to_hls(input_video_path, output_dir):
-    # input_video_path: odatdagi mp4 yo'li
-    # output_dir: hls ya'ni m3u8 qilingan papka yo'li
-
+def convert_to_hls_async(input_video_path, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     base_name = os.path.splitext(os.path.basename(input_video_path))[0]
     m3u8_path = os.path.join(output_dir, f"{base_name}.m3u8")
@@ -16,5 +11,5 @@ def convert_to_hls(input_video_path, output_dir):
         '-start_number', '0', '-hls_time', '10',
         '-hls_list_size', '0', '-f', 'hls', m3u8_path
     ]
-    subprocess.run(command, check=True)
+    subprocess.Popen(command)  
     return m3u8_path
