@@ -59,10 +59,10 @@ jobs:
 
       - name: Run Tests
         env:
-          DJANGO_DB_NAME: test_db
-          DJANGO_DB_USER: test_user
-          DJANGO_DB_PASSWORD: test_password
-          DJANGO_DB_HOST: localhost
-          DJANGO_DB_PORT: 5432
+          DB_NAME: test_db
+          DB_USER: test_user
+          DB_PASSWORD: test_password
+          DB_HOST: localhost
+          DB_PORT: 5432
         run: |
           python manage.py test
