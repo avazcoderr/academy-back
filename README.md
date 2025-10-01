@@ -38,7 +38,7 @@ sudo apt install postgresql postgresql-contrib
 sudo -u postgres psql
 CREATE DATABASE my_db;
 CREATE USER test_user WITH PASSWORD 'your_strong_password';
-GRANT ALL PRIVILEGES ON DATABASE my_db TO my_user;
+GRANT ALL PRIVILEGES ON DATABASE my_db TO my                                                                                               _user;
 \q
 ```
 
