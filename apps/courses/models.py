@@ -1,7 +1,13 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
-
+from django.utils.text import slugify
 from utils import AbstractBaseModel
+
+
+def lesson_video_path(instance, filename):
+    lesson_slug = slugify(instance.title)
+    return f"lessons/videos/{lesson_slug}/{filename}"
+
 
 
 class Category(AbstractBaseModel):
@@ -91,7 +97,7 @@ class Lesson(AbstractBaseModel):
     title = models.CharField(max_length=255)
     content = models.TextField()
     video = models.FileField(
-        upload_to="lessons/videos/",
+        upload_to=lesson_video_path,
         validators=[FileExtensionValidator(allowed_extensions=["mp4", "avi", "mov"])],
         null=True,
         blank=True
