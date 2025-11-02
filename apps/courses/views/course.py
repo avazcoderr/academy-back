@@ -13,7 +13,8 @@ class CourseListCreateView(generics.ListCreateAPIView):
     """
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -95,3 +96,5 @@ class CourseDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 course_list_create_view = CourseListCreateView.as_view()
 course_detail_view = CourseDetailView.as_view()
+
+print(Response)
