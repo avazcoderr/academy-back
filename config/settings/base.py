@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     "drf_yasg",
 
     "apps.courses",
+    "apps.authentication",
 ]
 
 MIDDLEWARE = [

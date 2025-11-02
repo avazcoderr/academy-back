@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
 
-from utils import AbstractBaseModel
+from utils.abs_model import AbstractBaseModel
 
 
 class Category(AbstractBaseModel):
